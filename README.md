@@ -88,7 +88,7 @@ This project provides a simple REST API to send emails using worker threads. It 
 ## Project Structure
 
 - `src/worker.js`: Worker script to handle email sending.
-- `server.js`: Main server file.
+- `main.js`: Main server file.
 - `package.json`: Project dependencies and scripts.
 
 ## Example Worker (`src/worker.js`)
