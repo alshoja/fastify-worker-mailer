@@ -1,7 +1,3 @@
-Sure! Below is a sample README for your Fastify-based email sending service:
-
----
-
 # Fastify Email Sending Service
 
 This project provides a simple REST API to send emails using worker threads. It validates email account objects and utilizes worker threads for asynchronous email processing.
