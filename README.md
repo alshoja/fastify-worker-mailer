@@ -91,41 +91,6 @@ This project provides a simple REST API to send emails using worker threads. It 
 - `main.js`: Main server file.
 - `package.json`: Project dependencies and scripts.
 
-## Example Worker (`src/worker.js`)
-
-Ensure you have a worker script in `src/worker.js` that handles the email sending logic. Here is a basic example:
-
-```javascript
-const { parentPort, workerData } = require('worker_threads');
-const nodemailer = require('nodemailer');
-
-const sendEmail = async (account) => {
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: account.email,
-            pass: account.password
-        }
-    });
-
-    let info = await transporter.sendMail({
-        from: account.email,
-        to: account.to,
-        subject: account.subject,
-        text: account.text
-    });
-
-    return info;
-};
-
-sendEmail(workerData)
-    .then(info => {
-        parentPort.postMessage(info);
-    })
-    .catch(error => {
-        parentPort.postMessage({ error: error.message });
-    });
-```
 
 ## Contributing
 
@@ -139,5 +104,3 @@ sendEmail(workerData)
 This project is licensed under the MIT License.
 
 ---
-
-Feel free to customize the README as per your project requirements and make sure to replace any placeholder text like repository URLs, etc., with actual data.
